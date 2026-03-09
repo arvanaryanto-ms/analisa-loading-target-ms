@@ -154,14 +154,16 @@ td{padding:9px 14px;white-space:nowrap;}
     <div class="section-head">
       <div class="section-title">UPLOAD DATA</div>
     </div>
-    <input type="file" id="fi-0" accept=".csv" style="position:fixed;top:-9999px;left:-9999px;opacity:0;" onchange="readCSV(this,'tab0')"/>
     <div class="upload-zone" id="uz-0" ondragover="onDrag(event,'uz-0')" ondragleave="offDrag('uz-0')" ondrop="onDrop(event,'fi-0','uz-0','tab0')">
       <button class="btn-dl-template" onclick="event.stopPropagation();dlTemplate()">↓ DOWNLOAD TEMPLATE</button>
       <div class="upload-icon">📦</div>
       <div class="upload-label" id="uz-0-title">Upload CSV — Analisis Waktu Loading vs Target</div>
       <div class="upload-hint" id="uz-0-sub">Drag & drop atau klik · Export dari Metabase · Query: Analisis Waktu Loading vs Target per Jenis Kendaraan</div>
       <div class="err-msg hidden" id="uz-0-err"></div>
-      <button onclick="event.stopPropagation();document.getElementById('fi-0').click()" style="margin-top:12px;background:#1d4ed8;color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:11px;cursor:pointer;font-family:'IBM Plex Mono',monospace;letter-spacing:1px;">📂 PILIH FILE CSV</button>
+      <label onclick="event.stopPropagation()" style="display:inline-block;margin-top:12px;background:#1d4ed8;color:#fff;border-radius:6px;padding:8px 20px;font-size:11px;cursor:pointer;font-family:'IBM Plex Mono',monospace;letter-spacing:1px;position:relative;overflow:hidden;">
+        📂 PILIH FILE CSV
+        <input type="file" id="fi-0" accept=".csv" style="position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer;" onchange="readCSV(this,'tab0')"/>
+      </label>
     </div>
 
     <!-- FILTER -->
