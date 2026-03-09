@@ -137,7 +137,7 @@ td{padding:9px 14px;white-space:nowrap;}
   <div class="header-right">
     <input type="password" class="api-input" id="api-key" placeholder="Groq API Key (gsk_...)" oninput="document.getElementById('key-ok').style.display='none'"/>
     <button class="btn-key" onclick="saveKey()">SIMPAN KEY</button>
-    <span class="key-ok" id="key-ok">✓ TERSIMPAN</span>
+    <span class="key-ok" id="key-ok">&#10003; TERSIMPAN</span>
   </div>
 </div>
 
@@ -154,14 +154,18 @@ td{padding:9px 14px;white-space:nowrap;}
     <div class="section-head">
       <div class="section-title">UPLOAD DATA</div>
     </div>
-    <div class="upload-zone" id="uz-0" ondragover="onDrag(event,'uz-0')" ondragleave="offDrag('uz-0')" ondrop="onDrop(event,'fi-0','uz-0','tab0')">
-      <button class="btn-dl-template" onclick="event.stopPropagation();dlTemplate()">↓ DOWNLOAD TEMPLATE</button>
-      <div class="upload-icon">📦</div>
-      <div class="upload-label" id="uz-0-title">Upload CSV — Analisis Waktu Loading vs Target</div>
-      <div class="upload-hint" id="uz-0-sub">Drag & drop atau klik · Export dari Metabase · Query: Analisis Waktu Loading vs Target per Jenis Kendaraan</div>
+    <div class="upload-zone" id="uz-0"
+         onclick="document.getElementById('fi-0').click()"
+         ondragover="onDrag(event,'uz-0')"
+         ondragleave="offDrag('uz-0')"
+         ondrop="onDrop(event,'fi-0','uz-0','tab0')">
+      <button class="btn-dl-template" onclick="event.stopPropagation();dlTemplate()">&#8595; DOWNLOAD TEMPLATE</button>
+      <div class="upload-icon">&#128230;</div>
+      <div class="upload-label" id="uz-0-title">Upload CSV &mdash; Analisis Waktu Loading vs Target</div>
+      <div class="upload-hint" id="uz-0-sub">Drag &amp; drop atau klik &middot; Export dari Metabase &middot; Query: Analisis Waktu Loading vs Target per Jenis Kendaraan</div>
       <div class="err-msg hidden" id="uz-0-err"></div>
       <input type="file" id="fi-0" accept=".csv" style="display:none" onchange="readCSV(this,'tab0')" onclick="this.value=null"/>
-      <button onclick="event.stopPropagation();document.getElementById('fi-0').click()" style="margin-top:12px;background:#1d4ed8;color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:11px;cursor:pointer;font-family:'IBM Plex Mono',monospace;letter-spacing:1px;">📂 PILIH FILE CSV</button>
+      <button onclick="event.stopPropagation();document.getElementById('fi-0').click()" style="margin-top:12px;background:#1d4ed8;color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:11px;cursor:pointer;font-family:'IBM Plex Mono',monospace;letter-spacing:1px;">&#128194; PILIH FILE CSV</button>
     </div>
 
     <!-- FILTER -->
@@ -201,11 +205,11 @@ td{padding:9px 14px;white-space:nowrap;}
     <!-- AI SUMMARY -->
     <div class="ai-wrap hidden" id="ai-0">
       <div class="ai-topbar">
-        <div class="ai-toplabel">✨ ANALISA AI — LOADING VS TARGET</div>
+        <div class="ai-toplabel">&#10024; ANALISA AI &mdash; LOADING VS TARGET</div>
         <div class="ai-controls">
-          <span class="ai-free-badge">GRATIS · OpenRouter</span>
+          <span class="ai-free-badge">GRATIS &middot; Groq</span>
           <button class="btn-ai" id="ai-btn-0" onclick="event.stopPropagation();generateAI('tab0')">GENERATE ANALISA</button>
-          <button class="btn-excel" id="btn-excel-0" onclick="event.stopPropagation();downloadExcel()">↓ DOWNLOAD EXCEL</button>
+          <button class="btn-excel" id="btn-excel-0" onclick="event.stopPropagation();downloadExcel()">&#8595; DOWNLOAD EXCEL</button>
         </div>
       </div>
       <div id="ai-body-0">
@@ -213,9 +217,9 @@ td{padding:9px 14px;white-space:nowrap;}
         <div class="ai-loading hidden" id="ai-ld-0"><div class="spinner"></div>AI sedang menganalisa data...</div>
         <div id="ai-result-0"></div>
         <div class="voice-controls" id="voice-controls">
-          <button class="btn-voice btn-play" id="btn-play" onclick="voicePlay()">▶ PLAY</button>
-          <button class="btn-voice btn-pause" id="btn-pause" onclick="voicePause()" disabled>⏸ PAUSE</button>
-          <button class="btn-voice btn-stop" id="btn-stop" onclick="voiceStop()" disabled>⏹ STOP</button>
+          <button class="btn-voice btn-play" id="btn-play" onclick="voicePlay()">&#9654; PLAY</button>
+          <button class="btn-voice btn-pause" id="btn-pause" onclick="voicePause()" disabled>&#9646;&#9646; PAUSE</button>
+          <button class="btn-voice btn-stop" id="btn-stop" onclick="voiceStop()" disabled>&#9632; STOP</button>
           <span class="voice-status" id="voice-status">Siap membaca analisa</span>
           <span class="voice-progress" id="voice-progress"></span>
         </div>
@@ -228,21 +232,21 @@ td{padding:9px 14px;white-space:nowrap;}
 <!-- =================== TAB 1: TRAFFIC =================== -->
 <div class="tab-panel" id="tab-1">
   <div class="content">
-    <div class="empty-state">🚛 Sub-tab Traffic In-Out — Segera hadir</div>
+    <div class="empty-state">&#128667; Sub-tab Traffic In-Out &mdash; Segera hadir</div>
   </div>
 </div>
 
 <!-- =================== TAB 2: PERFORMANCE =================== -->
 <div class="tab-panel" id="tab-2">
   <div class="content">
-    <div class="empty-state">📊 Sub-tab Performance Planning — Segera hadir</div>
+    <div class="empty-state">&#128202; Sub-tab Performance Planning &mdash; Segera hadir</div>
   </div>
 </div>
 
 <!-- =================== TAB 3: AI GABUNGAN =================== -->
 <div class="tab-panel" id="tab-3">
   <div class="content">
-    <div class="empty-state">🤖 Analisa AI Gabungan — Aktif setelah semua tab diupload</div>
+    <div class="empty-state">&#129302; Analisa AI Gabungan &mdash; Aktif setelah semua tab diupload</div>
   </div>
 </div>
 
@@ -260,11 +264,12 @@ function saveKey() {
   try { sessionStorage.setItem('groq_key', k); } catch(e) {}
   document.getElementById('key-ok').style.display = 'inline';
 }
+
 function getKey() {
   var fromInput = document.getElementById('api-key').value.trim();
   if (fromInput) return fromInput;
-  try { var ls = localStorage.getItem('groq_key'); if(ls) return ls; } catch(e) {}
-  try { var ss = sessionStorage.getItem('groq_key'); if(ss) return ss; } catch(e) {}
+  try { var ls = localStorage.getItem('groq_key'); if (ls) return ls; } catch(e) {}
+  try { var ss = sessionStorage.getItem('groq_key'); if (ss) return ss; } catch(e) {}
   return '';
 }
 
@@ -275,62 +280,94 @@ function switchTab(idx) {
 }
 
 // ========== UPLOAD ==========
-function triggerFile(id) { document.getElementById(id).click(); }
 function onDrag(e, id) { e.preventDefault(); document.getElementById(id).classList.add('drag'); }
-function offDrag(id) { document.getElementById(id).classList.remove('drag'); }
+function offDrag(id)   { document.getElementById(id).classList.remove('drag'); }
+
 function onDrop(e, fid, uid, tab) {
-  e.preventDefault(); offDrag(uid);
+  e.preventDefault();
+  offDrag(uid);
   var f = e.dataTransfer.files[0];
   if (f) parseFile(f, tab);
 }
-function readCSV(inp, tab) { if (inp.files[0]) parseFile(inp.files[0], tab); }
+
+function readCSV(inp, tab) {
+  if (inp.files && inp.files[0]) parseFile(inp.files[0], tab);
+}
 
 function parseFile(file, tab) {
+  // Reset error
+  var errEl = document.getElementById('uz-0-err');
+  if (errEl) errEl.classList.add('hidden');
+
+  if (!file.name.toLowerCase().endsWith('.csv')) {
+    showErr('uz-0-err', 'File harus berformat CSV.');
+    return;
+  }
+
   Papa.parse(file, {
-    header: true, skipEmptyLines: true,
+    header: true,
+    skipEmptyLines: true,
     complete: function(res) {
-      if (!res.data || res.data.length === 0) { showErr('uz-0-err', 'File CSV kosong.'); return; }
+      if (!res.data || res.data.length === 0) {
+        showErr('uz-0-err', 'File CSV kosong atau tidak ada data valid.');
+        return;
+      }
       if (tab === 'tab0') processTab0(res.data, file.name);
     },
-    error: function() { showErr('uz-0-err', 'Gagal membaca file CSV.'); }
+    error: function(err) {
+      showErr('uz-0-err', 'Gagal membaca file CSV: ' + (err.message || 'unknown error'));
+    }
   });
 }
 
 function showErr(id, msg) {
   var e = document.getElementById(id);
-  e.textContent = msg; e.classList.remove('hidden');
+  if (e) { e.textContent = msg; e.classList.remove('hidden'); }
 }
 
 // ========== TAB 0 PROCESSING ==========
 function processTab0(data, filename) {
-  // normalize & filter empty rows
-  var clean = data.filter(function(r) {
-    return r.LOADING_DATE && r.JENIS_KENDARAAN;
+  // Normalize column names (trim whitespace, uppercase)
+  var normalized = data.map(function(r) {
+    var out = {};
+    Object.keys(r).forEach(function(k) {
+      out[k.trim().toUpperCase()] = typeof r[k] === 'string' ? r[k].trim() : r[k];
+    });
+    return out;
+  });
+
+  var clean = normalized.filter(function(r) {
+    return r['LOADING_DATE'] && r['JENIS_KENDARAAN'];
   }).map(function(r) {
     return {
-      date: r.LOADING_DATE || '',
-      kend: String(r.JENIS_KENDARAAN || '').trim(),
-      jns: r.JNS_LOAD || '',
-      truck: parseInt(r.TRUCK) || 0,
-      avg: parseFloat(r.AVG_MINUTE),
-      target: parseFloat(r.TARGET_MINUTE),
-      dev: parseFloat(r.DEV_FROM_TARGET),
-      status: r.STATUS || ''
+      date:   r['LOADING_DATE'] || '',
+      kend:   String(r['JENIS_KENDARAAN'] || '').trim(),
+      jns:    r['JNS_LOAD'] || '',
+      truck:  parseInt(r['TRUCK']) || 0,
+      avg:    parseFloat(r['AVG_MINUTE']),
+      target: parseFloat(r['TARGET_MINUTE']),
+      dev:    parseFloat(r['DEV_FROM_TARGET']),
+      status: r['STATUS'] || ''
     };
   });
 
-  DS.tab0.raw = clean;
-  DS.tab0.filtered = clean;
-  DS.tab0.filters = { jns: 'ALL', kend: 'ALL' };
+  if (clean.length === 0) {
+    showErr('uz-0-err', 'Tidak ada baris valid. Pastikan kolom: LOADING_DATE, JENIS_KENDARAAN, JNS_LOAD, TRUCK, AVG_MINUTE, TARGET_MINUTE, DEV_FROM_TARGET, STATUS');
+    return;
+  }
 
-  // update upload zone
+  DS.tab0.raw      = clean;
+  DS.tab0.filtered = clean;
+  DS.tab0.filters  = { jns: 'ALL', kend: 'ALL' };
+
+  // Update upload zone UI
   var uz = document.getElementById('uz-0');
   uz.classList.add('loaded');
-  document.getElementById('uz-0-title').innerHTML = '<span class="upload-ok">✅ ' + filename + '</span>';
-  document.getElementById('uz-0-sub').innerHTML = '<span class="upload-meta">' + clean.length + ' baris valid · Klik untuk ganti file</span>';
+  document.getElementById('uz-0-title').innerHTML = '<span class="upload-ok">&#10003; ' + filename + '</span>';
+  document.getElementById('uz-0-sub').innerHTML   = '<span class="upload-meta">' + clean.length + ' baris valid &middot; Klik untuk ganti file</span>';
   document.getElementById('uz-0-err').classList.add('hidden');
 
-  // reset filters UI
+  // Reset filter UI
   document.querySelectorAll('#filter-0 .filter-btn').forEach(function(b) {
     b.classList.toggle('active', b.textContent === 'SEMUA');
   });
@@ -345,31 +382,18 @@ function processTab0(data, filename) {
 
 function setFilter(type, val, el) {
   DS.tab0.filters[type] = val;
-  // update active btn in same group
-  var label = type === 'jns' ? 'JENIS LOAD:' : 'KENDARAAN:';
-  el.parentElement.querySelectorAll('.filter-btn').forEach(function(b) {
-    // only toggle btns in same group
-    var prev = b.previousElementSibling;
-    var inGroup = false;
-    var cur = b;
-    while (cur) {
-      if (cur.classList && cur.classList.contains('filter-sep')) break;
-      if (cur.previousElementSibling === null) { inGroup = true; break; }
-      cur = cur.previousElementSibling;
-    }
-  });
-  // simpler: just toggle within same onclick group
-  var allBtns = document.querySelectorAll('#filter-0 .filter-btn');
-  var jnsBtns = ['SEMUA', 'LOADING', 'UNLOADING'];
+
+  var jnsBtns  = ['SEMUA', 'LOADING', 'UNLOADING'];
   var kendBtns = ['SEMUA', '2T', '4T', '10T', '15T', '20T', '40T'];
-  allBtns.forEach(function(b) {
+
+  document.querySelectorAll('#filter-0 .filter-btn').forEach(function(b) {
     var txt = b.textContent;
-    if (type === 'jns' && jnsBtns.indexOf(txt) >= 0) b.classList.toggle('active', b === el);
+    if (type === 'jns'  && jnsBtns.indexOf(txt)  >= 0) b.classList.toggle('active', b === el);
     if (type === 'kend' && kendBtns.indexOf(txt) >= 0) b.classList.toggle('active', b === el);
   });
 
   var d = DS.tab0.raw;
-  if (DS.tab0.filters.jns !== 'ALL') d = d.filter(function(r) { return r.jns === DS.tab0.filters.jns; });
+  if (DS.tab0.filters.jns  !== 'ALL') d = d.filter(function(r) { return r.jns  === DS.tab0.filters.jns; });
   if (DS.tab0.filters.kend !== 'ALL') d = d.filter(function(r) { return r.kend === DS.tab0.filters.kend; });
   DS.tab0.filtered = d;
   renderTab0();
@@ -379,30 +403,32 @@ function renderTab0() {
   var data = DS.tab0.filtered;
   renderCards0(data);
   renderTable0(data);
-  // reset AI
+  // Reset AI panel
   document.getElementById('ai-ph-0').classList.remove('hidden');
   document.getElementById('ai-result-0').innerHTML = '';
-  document.getElementById('ai-btn-0').textContent = 'GENERATE ANALISA';
+  document.getElementById('ai-btn-0').textContent  = 'GENERATE ANALISA';
+  document.getElementById('btn-excel-0').style.display = 'none';
+  document.getElementById('voice-controls').style.display = 'none';
 }
 
 function renderCards0(data) {
-  var avgs = data.map(function(r) { return r.avg; }).filter(function(v) { return !isNaN(v); });
-  var devs = data.map(function(r) { return r.dev; }).filter(function(v) { return !isNaN(v); });
-  var onTarget = data.filter(function(r) { return r.status && r.status.indexOf('On Target') >= 0; }).length;
-  var toleransi = data.filter(function(r) { return r.status && r.status.indexOf('Toleransi') >= 0; }).length;
+  var avgs       = data.map(function(r) { return r.avg; }).filter(function(v) { return !isNaN(v); });
+  var devs       = data.map(function(r) { return r.dev; }).filter(function(v) { return !isNaN(v); });
+  var onTarget   = data.filter(function(r) { return r.status && r.status.indexOf('On Target')  >= 0; }).length;
+  var toleransi  = data.filter(function(r) { return r.status && r.status.indexOf('Toleransi')  >= 0; }).length;
   var overTarget = data.filter(function(r) { return r.status && r.status.indexOf('Over Target') >= 0; }).length;
   var totalTruck = data.reduce(function(a, r) { return a + r.truck; }, 0);
-  var avgAll = avgs.length ? (avgs.reduce(function(a,b){return a+b;},0)/avgs.length).toFixed(1) : '-';
-  var avgDev = devs.length ? (devs.reduce(function(a,b){return a+b;},0)/devs.length).toFixed(1) : '-';
-  var pctOT = data.length ? Math.round(onTarget/data.length*100) : 0;
+  var avgAll     = avgs.length ? (avgs.reduce(function(a,b){return a+b;},0)/avgs.length).toFixed(1) : '-';
+  var avgDev     = devs.length ? (devs.reduce(function(a,b){return a+b;},0)/devs.length).toFixed(1) : '-';
+  var pctOT      = data.length ? Math.round(onTarget / data.length * 100) : 0;
 
   document.getElementById('cards-0').innerHTML =
-    card('TOTAL TRUCK', totalTruck, 'c-blue', 'Semua terdata') +
-    card('AVG WAKTU', avgAll + ' min', avgs.length && parseFloat(avgAll) <= 90 ? 'c-green' : 'c-red', 'Rata-rata keseluruhan') +
-    card('AVG DEVIASI', (parseFloat(avgDev) >= 0 ? '+' : '') + avgDev + ' min', parseFloat(avgDev) <= 0 ? 'c-green' : 'c-red', 'Dari target') +
-    card('ON TARGET', onTarget + ' (' + pctOT + '%)', 'c-green', data.length + ' total baris') +
-    card('TOLERANSI', toleransi, 'c-yellow', '+1 s/d +15 menit') +
-    card('OVER TARGET', overTarget, 'c-red', 'Melewati batas');
+    card('TOTAL TRUCK',  totalTruck, 'c-blue',   'Semua terdata') +
+    card('AVG WAKTU',    avgAll + ' min', avgs.length && parseFloat(avgAll) <= 90 ? 'c-green' : 'c-red', 'Rata-rata keseluruhan') +
+    card('AVG DEVIASI',  (parseFloat(avgDev) >= 0 ? '+' : '') + avgDev + ' min', parseFloat(avgDev) <= 0 ? 'c-green' : 'c-red', 'Dari target') +
+    card('ON TARGET',    onTarget + ' (' + pctOT + '%)', 'c-green',  data.length + ' total baris') +
+    card('TOLERANSI',    toleransi,   'c-yellow', '+1 s/d +15 menit') +
+    card('OVER TARGET',  overTarget,  'c-red',    'Melewati batas');
 }
 
 function card(label, val, cls, sub) {
@@ -412,13 +438,16 @@ function card(label, val, cls, sub) {
 function renderTable0(data) {
   var tbody = document.getElementById('tb-0');
   document.getElementById('tbl-0-count').textContent = data.length + ' baris';
-  if (data.length === 0) { tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px;color:#3d5070;">Tidak ada data</td></tr>'; return; }
+  if (data.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px;color:#3d5070;">Tidak ada data</td></tr>';
+    return;
+  }
+  var kendColor = {'2':'#a78bfa','4':'#4a9eff','10':'#22c55e','15':'#fbbf24','20':'#fb923c','40':'#f87171'};
   tbody.innerHTML = data.map(function(r) {
-    var devStr = isNaN(r.dev) ? '-' : (r.dev >= 0 ? '+' : '') + r.dev + ' min';
+    var devStr   = isNaN(r.dev) ? '-' : (r.dev >= 0 ? '+' : '') + r.dev + ' min';
     var devColor = isNaN(r.dev) ? '#3d5070' : r.dev <= 0 ? '#22c55e' : r.dev <= 15 ? '#fbbf24' : '#f87171';
-    var bc = r.status.indexOf('On Target') >= 0 ? 'b-green' : r.status.indexOf('Toleransi') >= 0 ? 'b-yellow' : 'b-red';
-    var kendColor = {'2':'#a78bfa','4':'#4a9eff','10':'#22c55e','15':'#fbbf24','20':'#fb923c','40':'#f87171'};
-    var kc = kendColor[r.kend] || '#94a3b8';
+    var bc       = r.status.indexOf('On Target') >= 0 ? 'b-green' : r.status.indexOf('Toleransi') >= 0 ? 'b-yellow' : 'b-red';
+    var kc       = kendColor[r.kend] || '#94a3b8';
     return '<tr>' +
       '<td style="color:#7ab4e8;font-weight:500">' + r.date + '</td>' +
       '<td><span class="badge b-blue" style="color:' + kc + ';background:#0a1628">' + r.kend + ' TON</span></td>' +
@@ -435,20 +464,22 @@ function renderTable0(data) {
 // ========== TEMPLATE DOWNLOAD ==========
 function dlTemplate() {
   var csv = 'LOADING_DATE,JENIS_KENDARAAN,JNS_LOAD,TRUCK,AVG_MINUTE,TARGET_MINUTE,DEV_FROM_TARGET,STATUS\n' +
-    '"April 1, 2025",10,Loading,5,85,90,-5,🟢 On Target\n' +
-    '"April 1, 2025",15,Unloading,3,125,110,15,🟡 Toleransi\n' +
-    '"April 2, 2025",40,Loading,2,180,150,30,🔴 Over Target\n';
-  var a = document.createElement('a');
-  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+    '"April 1, 2025",10,Loading,5,85,90,-5,On Target\n' +
+    '"April 1, 2025",15,Unloading,3,125,110,15,Toleransi\n' +
+    '"April 2, 2025",40,Loading,2,180,150,30,Over Target\n';
+  var a     = document.createElement('a');
+  a.href    = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
   a.download = 'template_loading_vs_target.csv';
   a.click();
 }
 
 // ========== AI SUMMARY ==========
 async function generateAI(tab) {
-  // Auto-save key jika belum disimpan
   var inputKey = document.getElementById('api-key').value.trim();
-  if (inputKey) { try { localStorage.setItem('groq_key', inputKey); } catch(e) {} try { sessionStorage.setItem('groq_key', inputKey); } catch(e) {} }
+  if (inputKey) {
+    try { localStorage.setItem('groq_key', inputKey); } catch(e) {}
+    try { sessionStorage.setItem('groq_key', inputKey); } catch(e) {}
+  }
   var apiKey = getKey();
   if (!apiKey) { alert('Masukkan Groq API Key (gsk_...) di bagian atas terlebih dahulu.'); return; }
 
@@ -456,31 +487,31 @@ async function generateAI(tab) {
   if (!data || data.length === 0) { alert('Tidak ada data untuk dianalisa.'); return; }
 
   var btn = document.getElementById('ai-btn-0');
-  btn.disabled = true; btn.textContent = 'GENERATING...';
+  btn.disabled = true;
+  btn.textContent = 'GENERATING...';
   document.getElementById('ai-ph-0').classList.add('hidden');
   document.getElementById('ai-result-0').innerHTML = '';
   document.getElementById('ai-ld-0').classList.remove('hidden');
 
-  // prepare summary data for AI
+  // Prepare summary data
   var byKend = {};
   data.forEach(function(r) {
     if (!byKend[r.kend]) byKend[r.kend] = { avgs:[], devs:[], onTarget:0, total:0, trucks:0 };
-    if (!isNaN(r.avg)) byKend[r.kend].avgs.push(r.avg);
-    if (!isNaN(r.dev)) byKend[r.kend].devs.push(r.dev);
+    if (!isNaN(r.avg))  byKend[r.kend].avgs.push(r.avg);
+    if (!isNaN(r.dev))  byKend[r.kend].devs.push(r.dev);
     if (r.status.indexOf('On Target') >= 0) byKend[r.kend].onTarget++;
     byKend[r.kend].total++;
     byKend[r.kend].trucks += r.truck;
   });
 
   var kendSummary = Object.keys(byKend).sort(function(a,b){return parseInt(a)-parseInt(b);}).map(function(k) {
-    var d = byKend[k];
-    var avg = d.avgs.length ? (d.avgs.reduce(function(a,b){return a+b;},0)/d.avgs.length).toFixed(1) : 'N/A';
-    var avgDev = d.devs.length ? (d.devs.reduce(function(a,b){return a+b;},0)/d.devs.length).toFixed(1) : 'N/A';
-    var pct = d.total ? Math.round(d.onTarget/d.total*100) : 0;
-    return 'Kendaraan '+k+' ton: AvgWaktu='+avg+'mnt, AvgDeviasi='+avgDev+'mnt, OnTarget='+pct+'%, TotalTruck='+d.trucks;
+    var d    = byKend[k];
+    var avg  = d.avgs.length ? (d.avgs.reduce(function(a,b){return a+b;},0)/d.avgs.length).toFixed(1) : 'N/A';
+    var avgD = d.devs.length ? (d.devs.reduce(function(a,b){return a+b;},0)/d.devs.length).toFixed(1) : 'N/A';
+    var pct  = d.total ? Math.round(d.onTarget/d.total*100) : 0;
+    return 'Kendaraan ' + k + ' ton: AvgWaktu=' + avg + 'mnt, AvgDeviasi=' + avgD + 'mnt, OnTarget=' + pct + '%, TotalTruck=' + d.trucks;
   }).join('\n');
 
-  // monthly trend
   var byMonth = {};
   data.forEach(function(r) {
     var m = r.date ? r.date.substring(0,8) : 'Unknown';
@@ -490,52 +521,35 @@ async function generateAI(tab) {
     byMonth[m].total++;
   });
   var monthSummary = Object.keys(byMonth).sort().map(function(m) {
-    var d = byMonth[m];
-    var avgDev = d.devs.length ? (d.devs.reduce(function(a,b){return a+b;},0)/d.devs.length).toFixed(1) : 'N/A';
-    var pct = d.total ? Math.round(d.onTarget/d.total*100) : 0;
-    return m+': OnTarget='+pct+'%, AvgDeviasi='+avgDev+'mnt';
+    var d    = byMonth[m];
+    var avgD = d.devs.length ? (d.devs.reduce(function(a,b){return a+b;},0)/d.devs.length).toFixed(1) : 'N/A';
+    var pct  = d.total ? Math.round(d.onTarget/d.total*100) : 0;
+    return m + ': OnTarget=' + pct + '%, AvgDeviasi=' + avgD + 'mnt';
   }).join('\n');
 
-  var totalRows = data.length;
-  var onTargetAll = data.filter(function(r){return r.status.indexOf('On Target')>=0;}).length;
-  var overTargetAll = data.filter(function(r){return r.status.indexOf('Over Target')>=0;}).length;
-  var pctAll = Math.round(onTargetAll/totalRows*100);
+  var totalRows    = data.length;
+  var onTargetAll  = data.filter(function(r){return r.status.indexOf('On Target')  >= 0;}).length;
+  var overTargetAll= data.filter(function(r){return r.status.indexOf('Over Target') >= 0;}).length;
+  var pctAll       = Math.round(onTargetAll / totalRows * 100);
+  var filterInfo   = 'Filter aktif: JNS_LOAD=' + DS.tab0.filters.jns + ', Kendaraan=' + DS.tab0.filters.kend;
 
-  var filterInfo = 'Filter aktif: JNS_LOAD=' + DS.tab0.filters.jns + ', Kendaraan=' + DS.tab0.filters.kend;
+  var prompt = 'Kamu adalah analis operasional logistik senior di perusahaan distribusi Indonesia.\n\n' +
+    'Berikut ringkasan data Analisis Waktu Loading vs Target per Jenis Kendaraan:\n\n' +
+    'OVERVIEW:\n' +
+    '- Total data: ' + totalRows + ' baris\n' +
+    '- On Target: ' + onTargetAll + ' (' + pctAll + '%)\n' +
+    '- Over Target: ' + overTargetAll + ' (' + Math.round(overTargetAll/totalRows*100) + '%)\n' +
+    '- ' + filterInfo + '\n\n' +
+    'PER JENIS KENDARAAN:\n' + kendSummary + '\n\n' +
+    'TREN BULANAN:\n' + monthSummary + '\n\n' +
+    'Buatkan analisa dalam format PERSIS seperti ini (4 bagian, masing-masing 1 paragraf, Bahasa Indonesia profesional):\n\n' +
+    '[PERFORMA KESELURUHAN]\n(paragraf analisa performa umum, tingkat kepatuhan, gambaran periode)\n\n' +
+    '[KENDARAAN TERBAIK & TERBURUK]\n(paragraf tentang jenis kendaraan paling on target dan paling bermasalah beserta angkanya)\n\n' +
+    '[TREN BULANAN]\n(paragraf tentang pola naik/turun per bulan, periode kritis, periode terbaik)\n\n' +
+    '[REKOMENDASI & PROYEKSI]\n(paragraf rekomendasi spesifik dan proyeksi tren bulan depan berdasarkan data)\n\n' +
+    'Gunakan angka spesifik dari data. Bahasa profesional, padat, dan actionable.';
 
-  var prompt = `Kamu adalah analis operasional logistik senior di perusahaan distribusi Indonesia.
-
-Berikut ringkasan data Analisis Waktu Loading vs Target per Jenis Kendaraan:
-
-OVERVIEW:
-- Total data: ${totalRows} baris
-- On Target: ${onTargetAll} (${pctAll}%)
-- Over Target: ${overTargetAll} (${Math.round(overTargetAll/totalRows*100)}%)
-- ${filterInfo}
-
-PER JENIS KENDARAAN:
-${kendSummary}
-
-TREN BULANAN:
-${monthSummary}
-
-Buatkan analisa dalam format PERSIS seperti ini (4 bagian, masing-masing 1 paragraf, Bahasa Indonesia profesional):
-
-[PERFORMA KESELURUHAN]
-(paragraf analisa performa umum, tingkat kepatuhan, gambaran periode)
-
-[KENDARAAN TERBAIK & TERBURUK]
-(paragraf tentang jenis kendaraan paling on target dan paling bermasalah beserta angkanya)
-
-[TREN BULANAN]
-(paragraf tentang pola naik/turun per bulan, periode kritis, periode terbaik)
-
-[REKOMENDASI & PROYEKSI]
-(paragraf rekomendasi spesifik dan proyeksi tren bulan depan berdasarkan data)
-
-Gunakan angka spesifik dari data. Bahasa profesional, padat, dan actionable.`;
-
-    var models = [
+  var models = [
     'llama-3.3-70b-versatile',
     'llama3-70b-8192',
     'gemma2-9b-it',
@@ -547,14 +561,21 @@ Gunakan angka spesifik dari data. Bahasa profesional, padat, dan actionable.`;
     try {
       var res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey, 'HTTP-Referer': 'https://arvanaryanto-ms.github.io', 'X-Title': 'Dashboard Logistik' },
-        body: JSON.stringify({ model: models[i], max_tokens: 800, messages: [{ role: 'user', content: prompt }] })
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + apiKey
+        },
+        body: JSON.stringify({
+          model: models[i],
+          max_tokens: 800,
+          messages: [{ role: 'user', content: prompt }]
+        })
       });
       var json = await res.json();
       if (json.error) throw new Error(json.error.message);
       var c = json.choices && json.choices[0] && json.choices[0].message ? json.choices[0].message.content : null;
       if (c) { text = c; break; }
-      throw new Error('Empty');
+      throw new Error('Empty response');
     } catch(e) { lastErr = e; }
   }
 
@@ -572,10 +593,10 @@ Gunakan angka spesifik dari data. Bahasa profesional, padat, dan actionable.`;
 
 function renderAIResult(text) {
   var sections = [
-    { key: '[PERFORMA KESELURUHAN]', label: 'PERFORMA KESELURUHAN' },
+    { key: '[PERFORMA KESELURUHAN]',       label: 'PERFORMA KESELURUHAN' },
     { key: '[KENDARAAN TERBAIK & TERBURUK]', label: 'KENDARAAN TERBAIK & TERBURUK' },
-    { key: '[TREN BULANAN]', label: 'TREN BULANAN' },
-    { key: '[REKOMENDASI & PROYEKSI]', label: 'REKOMENDASI & PROYEKSI' }
+    { key: '[TREN BULANAN]',               label: 'TREN BULANAN' },
+    { key: '[REKOMENDASI & PROYEKSI]',     label: 'REKOMENDASI & PROYEKSI' }
   ];
 
   var html = '';
@@ -587,14 +608,12 @@ function renderAIResult(text) {
       var ni = text.indexOf(sections[i].key);
       if (ni > -1) { end = ni; break; }
     }
-    var content = end > -1 ? text.substring(start + sec.key.length, end) : text.substring(start + sec.key.length);
-    content = content.trim();
+    var content = (end > -1 ? text.substring(start + sec.key.length, end) : text.substring(start + sec.key.length)).trim();
     if (content) {
       html += '<div class="ai-block"><div class="ai-block-title">' + sec.label + '</div><div class="ai-block-text">' + content + '</div></div>';
     }
   });
 
-  // fallback jika format tidak sesuai
   if (!html) {
     html = '<div class="ai-block"><div class="ai-block-title">HASIL ANALISA</div><div class="ai-block-text">' + text + '</div></div>';
   }
@@ -605,39 +624,35 @@ function renderAIResult(text) {
   voiceStop();
 }
 
-
 // ========== DOWNLOAD EXCEL ==========
 function downloadExcel() {
   var btn = document.getElementById('btn-excel-0');
   btn.textContent = 'MENYIAPKAN...';
   btn.disabled = true;
 
-  var wb = XLSX.utils.book_new();
+  var wb  = XLSX.utils.book_new();
   var now = new Date();
-  var tglGenerate = now.toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'})+' '+now.toLocaleTimeString('id-ID');
-
+  var tglGenerate = now.toLocaleDateString('id-ID',{day:'2-digit',month:'long',year:'numeric'}) + ' ' + now.toLocaleTimeString('id-ID');
   var data = DS && DS.tab0 && DS.tab0.filtered ? DS.tab0.filtered : [];
 
-  // compute stats (sama dengan renderCards0)
-  var avgs      = data.map(function(r){return r.avg;}).filter(function(v){return !isNaN(v);});
-  var devs      = data.map(function(r){return r.dev;}).filter(function(v){return !isNaN(v);});
-  var onTarget  = data.filter(function(r){return r.status&&r.status.indexOf('On Target')>=0;}).length;
-  var toleransi = data.filter(function(r){return r.status&&r.status.indexOf('Toleransi')>=0;}).length;
-  var overTarget= data.filter(function(r){return r.status&&r.status.indexOf('Over Target')>=0;}).length;
-  var totalTruck= data.reduce(function(a,r){return a+r.truck;},0);
-  var avgAll    = avgs.length?(avgs.reduce(function(a,b){return a+b;},0)/avgs.length).toFixed(1):'-';
-  var avgDev    = devs.length?(devs.reduce(function(a,b){return a+b;},0)/devs.length).toFixed(1):'-';
-  var pctOT     = data.length?Math.round(onTarget/data.length*100):0;
-  var avgDevNum = parseFloat(avgDev);
+  var avgs       = data.map(function(r){return r.avg;}).filter(function(v){return !isNaN(v);});
+  var devs       = data.map(function(r){return r.dev;}).filter(function(v){return !isNaN(v);});
+  var onTarget   = data.filter(function(r){return r.status&&r.status.indexOf('On Target')>=0;}).length;
+  var toleransi  = data.filter(function(r){return r.status&&r.status.indexOf('Toleransi')>=0;}).length;
+  var overTarget = data.filter(function(r){return r.status&&r.status.indexOf('Over Target')>=0;}).length;
+  var totalTruck = data.reduce(function(a,r){return a+r.truck;},0);
+  var avgAll     = avgs.length?(avgs.reduce(function(a,b){return a+b;},0)/avgs.length).toFixed(1):'-';
+  var avgDev     = devs.length?(devs.reduce(function(a,b){return a+b;},0)/devs.length).toFixed(1):'-';
+  var pctOT      = data.length?Math.round(onTarget/data.length*100):0;
+  var avgDevNum  = parseFloat(avgDev);
 
-  // helper cell style
   function cs(v, bold, bgHex, fgHex, sz, wrap) {
     return {
       v: v, t: typeof v==='number'?'n':'s',
       s: {
-        font:  {bold:bold||false, sz:sz||11, color:{rgb:fgHex||'E2E8F0'}},
-        fill:  {fgColor:{rgb:bgHex||'0D1120'}, patternType:'solid'},
-        alignment: {wrapText:wrap||false, vertical:'center'},
+        font:      { bold:bold||false, sz:sz||11, color:{rgb:fgHex||'E2E8F0'} },
+        fill:      { fgColor:{rgb:bgHex||'0D1120'}, patternType:'solid' },
+        alignment: { wrapText:wrap||false, vertical:'center' },
         border: {
           top:   {style:'thin',color:{rgb:'1A2744'}},
           bottom:{style:'thin',color:{rgb:'1A2744'}},
@@ -651,10 +666,9 @@ function downloadExcel() {
 
   var ws = {};
   var R  = 0;
+  function setCell(col,row,cell){ ws[XLSX.utils.encode_cell({c:col,r:row})]=cell; }
 
-  function setCell(col, row, cell){ ws[XLSX.utils.encode_cell({c:col,r:row})] = cell; }
-
-  // ---- JUDUL ----
+  // Title
   setCell(0,R,cs('ANALISA LOADING VS TARGET',true,'0A0D18','4A9EFF',14));
   for(var c=1;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
   setCell(0,R,cs('Operational Analytics Dashboard',false,'0A0D18','64748B',11));
@@ -663,57 +677,47 @@ function downloadExcel() {
   for(var c=1;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
   for(var c=0;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
 
-  // ---- CARDS HEADER ----
+  // Stats header
   setCell(0,R,cs('RINGKASAN STATISTIK',true,'0A0D18','4A9EFF',10));
   for(var c=1;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
   for(var c=0;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
 
   var cardRow = R;
-
-  // Card label row
   setCell(0,R,cs('TOTAL TRUCK',    true,'0D1120','3D5070',9));
   setCell(1,R,cs('AVG WAKTU',      true,'0D1120','3D5070',9));
   setCell(2,R,cs('AVG DEVIASI',    true,'0D1120','3D5070',9));
   setCell(3,R,cs('ON TARGET',      true,'0D1120','3D5070',9));
   setCell(4,R,cs('TOLERANSI',      true,'0D1120','3D5070',9));
   setCell(5,R,cs('OVER TARGET',    true,'0D1120','3D5070',9));
-  setCell(6,R,empty('0D1120'));
-  setCell(7,R,empty('0D1120'));
-  R++;
+  setCell(6,R,empty('0D1120')); setCell(7,R,empty('0D1120')); R++;
 
-  // Card value row
-  var devColor  = avgDevNum<=0?'22C55E':'F87171';
-  var devBg     = avgDevNum<=0?'0F3320':'2A0A0A';
-  var devStr    = (avgDevNum>=0?'+':'')+avgDev+' min';
-  setCell(0,R,cs(totalTruck,         true,'0A1628','4A9EFF',18));
-  setCell(1,R,cs(avgAll+' min',      true, parseFloat(avgAll)<=90?'0F3320':'2A0A0A', parseFloat(avgAll)<=90?'22C55E':'F87171',18));
-  setCell(2,R,cs(devStr,             true,devBg,devColor,18));
-  setCell(3,R,cs(onTarget+' ('+pctOT+'%)', true,'0F3320','22C55E',18));
-  setCell(4,R,cs(String(toleransi),  true,'3A2500','FBBF24',18));
-  setCell(5,R,cs(String(overTarget), true,'2A0A0A','F87171',18));
-  setCell(6,R,empty('0D1120'));
-  setCell(7,R,empty('0D1120'));
-  R++;
+  var devColor = avgDevNum<=0?'22C55E':'F87171';
+  var devBg    = avgDevNum<=0?'0F3320':'2A0A0A';
+  var devStr   = (avgDevNum>=0?'+':'')+avgDev+' min';
+  setCell(0,R,cs(totalTruck,              true,'0A1628','4A9EFF',18));
+  setCell(1,R,cs(avgAll+' min',           true,parseFloat(avgAll)<=90?'0F3320':'2A0A0A',parseFloat(avgAll)<=90?'22C55E':'F87171',18));
+  setCell(2,R,cs(devStr,                  true,devBg,devColor,18));
+  setCell(3,R,cs(onTarget+' ('+pctOT+'%)',true,'0F3320','22C55E',18));
+  setCell(4,R,cs(String(toleransi),       true,'3A2500','FBBF24',18));
+  setCell(5,R,cs(String(overTarget),      true,'2A0A0A','F87171',18));
+  setCell(6,R,empty('0D1120')); setCell(7,R,empty('0D1120')); R++;
 
-  // Card sub row
-  setCell(0,R,cs('Semua terdata',      false,'0A1628','4A9EFF',9));
+  setCell(0,R,cs('Semua terdata',        false,'0A1628','4A9EFF',9));
   setCell(1,R,cs('Rata-rata keseluruhan',false,parseFloat(avgAll)<=90?'0F3320':'2A0A0A',parseFloat(avgAll)<=90?'22C55E':'F87171',9));
-  setCell(2,R,cs('Dari target',        false,devBg,devColor,9));
+  setCell(2,R,cs('Dari target',          false,devBg,devColor,9));
   setCell(3,R,cs(data.length+' total baris',false,'0F3320','22C55E',9));
-  setCell(4,R,cs('+1 s/d +15 menit',  false,'3A2500','FBBF24',9));
-  setCell(5,R,cs('Melewati batas',     false,'2A0A0A','F87171',9));
-  setCell(6,R,empty('0D1120'));
-  setCell(7,R,empty('0D1120'));
-  R++;
+  setCell(4,R,cs('+1 s/d +15 menit',    false,'3A2500','FBBF24',9));
+  setCell(5,R,cs('Melewati batas',       false,'2A0A0A','F87171',9));
+  setCell(6,R,empty('0D1120')); setCell(7,R,empty('0D1120')); R++;
   for(var c=0;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
 
-  // ---- DATA TABLE ----
+  // Data table
   setCell(0,R,cs('DATA LOADING VS TARGET',true,'0A0D18','4A9EFF',11));
   for(var c=1;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
 
-  var hdrs=['TANGGAL','KENDARAAN','JNS LOAD','TRUCK','AVG WAKTU','TARGET','DEVIASI','STATUS'];
-  hdrs.forEach(function(h,c){ setCell(c,R,cs(h,true,'07090F','475569',9)); });
-  R++;
+  ['TANGGAL','KENDARAAN','JNS LOAD','TRUCK','AVG WAKTU','TARGET','DEVIASI','STATUS'].forEach(function(h,c){
+    setCell(c,R,cs(h,true,'07090F','475569',9));
+  }); R++;
 
   var kendColor={'2':'A78BFA','4':'4A9EFF','10':'22C55E','15':'FBBF24','20':'FB923C','40':'F87171'};
   data.forEach(function(r){
@@ -721,41 +725,40 @@ function downloadExcel() {
     var sc     = pct==='green'?'22C55E':pct==='yellow'?'FBBF24':'F87171';
     var bg     = pct==='green'?'091A0F':pct==='yellow'?'1A1200':'1A0808';
     var kc     = kendColor[r.kend]||'94A3B8';
-    var devVal = isNaN(r.dev)?'-':(r.dev>=0?'+':'')+r.dev+' min';
-    var devC   = isNaN(r.dev)?'3D5070':r.dev<=0?'22C55E':r.dev<=15?'FBBF24':'F87171';
-    var statusTxt = (r.status||'-').split('').filter(function(c){return c.charCodeAt(0)<128;}).join('').trim()||r.status||'-';
-    setCell(0,R,cs(r.date,           false,bg,'7AB4E8',10));
-    setCell(1,R,cs(r.kend+' TON',    false,bg,kc,10));
-    setCell(2,R,cs(r.jns||'-',       false,bg,'94A3B8',10));
-    setCell(3,R,cs(r.truck,          false,bg,'FBBF24',10));
-    setCell(4,R,cs(isNaN(r.avg)?'-':r.avg+' min', false,bg,'E2E8F0',10));
+    var dv     = isNaN(r.dev)?'-':(r.dev>=0?'+':'')+r.dev+' min';
+    var dc     = isNaN(r.dev)?'3D5070':r.dev<=0?'22C55E':r.dev<=15?'FBBF24':'F87171';
+    var st     = (r.status||'-').replace(/[^\x00-\x7F]/g,'').trim()||r.status||'-';
+    setCell(0,R,cs(r.date,false,bg,'7AB4E8',10));
+    setCell(1,R,cs(r.kend+' TON',false,bg,kc,10));
+    setCell(2,R,cs(r.jns||'-',false,bg,'94A3B8',10));
+    setCell(3,R,cs(r.truck,false,bg,'FBBF24',10));
+    setCell(4,R,cs(isNaN(r.avg)?'-':r.avg+' min',false,bg,'E2E8F0',10));
     setCell(5,R,cs(isNaN(r.target)?'-':r.target+' min',false,bg,'3D5070',10));
-    setCell(6,R,cs(devVal,           false,bg,devC,10));
-    setCell(7,R,cs(statusTxt,        false,bg,sc,10));
+    setCell(6,R,cs(dv,false,bg,dc,10));
+    setCell(7,R,cs(st,false,bg,sc,10));
     R++;
   });
   for(var c=0;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
 
-  // ---- ANALISA AI ----
+  // AI analysis
   setCell(0,R,cs('ANALISA AI',true,'0A0D18','4A9EFF',11));
   for(var c=1;c<=7;c++) setCell(c,R,empty('0A0D18')); R++;
 
   var aiResult = document.getElementById('ai-result-0');
-  if(aiResult && aiResult.innerHTML){
-    var blocks = aiResult.querySelectorAll('.ai-block');
-    blocks.forEach(function(block){
+  if (aiResult && aiResult.innerHTML) {
+    aiResult.querySelectorAll('.ai-block').forEach(function(block){
       var title = block.querySelector('.ai-block-title');
-      var text  = block.querySelector('.ai-block-text');
-      if(title){
+      var txt   = block.querySelector('.ai-block-text');
+      if (title) {
         setCell(0,R,cs(title.textContent.trim(),true,'0A1628','4A9EFF',10));
         for(var c=1;c<=7;c++) setCell(c,R,empty('0A1628'));
         R++;
       }
-      if(text){
-        var txt = text.textContent.trim();
-        setCell(0,R,{v:txt,t:'s',s:{font:{sz:10,color:{rgb:'94A3B8'}},fill:{fgColor:{rgb:'0D1120'},patternType:'solid'},alignment:{wrapText:true,vertical:'top'}}});
+      if (txt) {
+        var t = txt.textContent.trim();
+        setCell(0,R,{v:t,t:'s',s:{font:{sz:10,color:{rgb:'94A3B8'}},fill:{fgColor:{rgb:'0D1120'},patternType:'solid'},alignment:{wrapText:true,vertical:'top'}}});
         for(var c=1;c<=7;c++) setCell(c,R,{v:'',t:'s',s:{fill:{fgColor:{rgb:'0D1120'},patternType:'solid'},alignment:{wrapText:true}}});
-        if(!ws['!merges']) ws['!merges']=[];
+        if (!ws['!merges']) ws['!merges']=[];
         ws['!merges'].push({s:{c:0,r:R},e:{c:7,r:R}});
         R++;
       }
@@ -766,158 +769,138 @@ function downloadExcel() {
     for(var c=1;c<=7;c++) setCell(c,R,empty('0D1120')); R++;
   }
 
-  // sheet settings
-  ws['!ref'] = XLSX.utils.encode_range({s:{c:0,r:0},e:{c:7,r:R}});
+  ws['!ref']  = XLSX.utils.encode_range({s:{c:0,r:0},e:{c:7,r:R}});
   ws['!cols'] = [{wch:22},{wch:14},{wch:12},{wch:10},{wch:12},{wch:12},{wch:12},{wch:16}];
   ws['!rows'] = ws['!rows']||[];
-  for(var i=0;i<R;i++){
-    if(i===cardRow+1) ws['!rows'][i]={hpt:36};
-    else if(i===cardRow+2) ws['!rows'][i]={hpt:18};
-    else ws['!rows'][i]={hpt:18};
+  for(var i=0;i<R;i++) {
+    ws['!rows'][i] = (i===cardRow+1) ? {hpt:36} : {hpt:18};
   }
-  if(!ws['!merges']) ws['!merges']=[];
+  if (!ws['!merges']) ws['!merges']=[];
   ws['!merges'].push({s:{c:0,r:0},e:{c:7,r:0}});
   ws['!merges'].push({s:{c:0,r:1},e:{c:7,r:1}});
   ws['!merges'].push({s:{c:0,r:2},e:{c:7,r:2}});
 
   XLSX.utils.book_append_sheet(wb, ws, 'Laporan');
 
-  var fname = 'Loading_vs_Target_'+now.getFullYear()+('0'+(now.getMonth()+1)).slice(-2)+('0'+now.getDate()).slice(-2)+'.xlsx';
-
-  // Buka tab baru yang langsung trigger download (works di Metabase iframe)
-  var wbout = XLSX.write(wb, { bookType:'xlsx', type:'base64' });
-  var dlHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Download Excel</title></head><body>'
-    + '<p style="font-family:monospace;color:#333;padding:20px;">Menyiapkan file Excel... download akan dimulai otomatis.</p>'
+  var fname  = 'Loading_vs_Target_' + now.getFullYear() + ('0'+(now.getMonth()+1)).slice(-2) + ('0'+now.getDate()).slice(-2) + '.xlsx';
+  var wbout  = XLSX.write(wb, { bookType:'xlsx', type:'base64' });
+  var dlHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Download</title></head><body>'
+    + '<p style="font-family:monospace;padding:20px;">Menyiapkan file... download otomatis.</p>'
     + '<script>'
-    + 'var b64="'+wbout+'";'
-    + 'var bin=atob(b64);'
-    + 'var arr=new Uint8Array(bin.length);'
+    + 'var b64="' + wbout + '";'
+    + 'var bin=atob(b64);var arr=new Uint8Array(bin.length);'
     + 'for(var i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);'
     + 'var blob=new Blob([arr],{type:"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"});'
     + 'var url=URL.createObjectURL(blob);'
-    + 'var a=document.createElement("a");'
-    + 'a.href=url;a.download="'+fname+'";'
+    + 'var a=document.createElement("a");a.href=url;a.download="' + fname + '";'
     + 'document.body.appendChild(a);a.click();'
-    + 'setTimeout(function(){URL.revokeObjectURL(url);document.body.innerHTML="<p style=\'font-family:monospace;color:green;padding:20px;\'>File berhasil didownload. Tab ini bisa ditutup.</p>";},1500);'
+    + 'setTimeout(function(){URL.revokeObjectURL(url);document.body.innerHTML="<p style=\'font-family:monospace;color:green;padding:20px;\'>Selesai. Tab ini bisa ditutup.</p>";},1500);'
     + '<\/script></body></html>';
 
-  var blob = new Blob([dlHtml], {type:'text/html'});
+  var blob = new Blob([dlHtml],{type:'text/html'});
   var url  = URL.createObjectURL(blob);
-  window.open(url, '_blank');
+  window.open(url,'_blank');
   setTimeout(function(){ URL.revokeObjectURL(url); }, 5000);
 
   btn.textContent = 'DOWNLOAD EXCEL';
   btn.disabled = false;
 }
 
-var voiceState = { speaking: false, paused: false, blocks: [], current: 0 };
+// ========== VOICE / TEXT-TO-SPEECH ==========
+var voiceState = { speaking:false, paused:false, blocks:[], current:0 };
 
-// ========== VOICE / TEXT-TO-SPEECH (ResponsiveVoice) ==========
-var voiceState = { speaking: false, paused: false, blocks: [], current: 0 };
-
-function getAIBlocks(){
+function getAIBlocks() {
   var blocks = [];
   document.querySelectorAll('#ai-result-0 .ai-block').forEach(function(el){
     var title = el.querySelector('.ai-block-title');
     var text  = el.querySelector('.ai-block-text');
-    if(title && text) blocks.push({ title: title.textContent.trim(), text: text.textContent.trim(), el: el });
+    if (title && text) blocks.push({ title:title.textContent.trim(), text:text.textContent.trim(), el:el });
   });
   return blocks;
 }
 
-function voicePlay(){
-  if(!window.speechSynthesis){ alert('Browser tidak mendukung Text-to-Speech.'); return; }
-
-  // Resume dari pause
-  if(voiceState.paused){
+function voicePlay() {
+  if (!window.speechSynthesis) { alert('Browser tidak mendukung Text-to-Speech.'); return; }
+  if (voiceState.paused) {
     window.speechSynthesis.resume();
     voiceState.paused=false; voiceState.speaking=true;
     document.getElementById('btn-play').disabled=true;
-    document.getElementById('btn-play').textContent='▶ PLAY';
+    document.getElementById('btn-play').textContent='&#9654; PLAY';
     document.getElementById('btn-pause').disabled=false;
     document.getElementById('voice-status').textContent='Membaca...';
     return;
   }
-
   window.speechSynthesis.cancel();
   voiceState.blocks  = getAIBlocks();
   voiceState.current = 0;
   voiceState.speaking= true;
   voiceState.paused  = false;
-
-  if(!voiceState.blocks.length){ alert('Tidak ada hasil analisa untuk dibaca.'); return; }
-
+  if (!voiceState.blocks.length) { alert('Tidak ada hasil analisa untuk dibaca.'); return; }
   document.getElementById('btn-play').disabled  = true;
   document.getElementById('btn-pause').disabled = false;
   document.getElementById('btn-stop').disabled  = false;
-
   setTimeout(function(){ voiceReadBlock(0); }, 300);
 }
 
-function getBestVoice(){
+function getBestVoice() {
   var vv = window.speechSynthesis.getVoices();
-  return vv.find(function(v){ return v.lang==='id-ID' && /google/i.test(v.name); })
+  return vv.find(function(v){ return v.lang==='id-ID'&&/google/i.test(v.name); })
       || vv.find(function(v){ return v.lang==='id-ID'; })
       || vv.find(function(v){ return /indonesia/i.test(v.name); })
-      || vv.find(function(v){ return v.lang==='en-US' && /google/i.test(v.name); })
+      || vv.find(function(v){ return v.lang==='en-US'&&/google/i.test(v.name); })
       || vv.find(function(v){ return v.lang==='en-US'; })
       || null;
 }
 
-function voiceReadBlock(idx){
-  if(idx>=voiceState.blocks.length){ voiceFinish(); return; }
-  if(!voiceState.speaking||voiceState.paused) return;
-
-  var block=voiceState.blocks[idx];
-  voiceState.current=idx;
-
+function voiceReadBlock(idx) {
+  if (idx >= voiceState.blocks.length) { voiceFinish(); return; }
+  if (!voiceState.speaking || voiceState.paused) return;
+  var block = voiceState.blocks[idx];
+  voiceState.current = idx;
   document.querySelectorAll('#ai-result-0 .ai-block').forEach(function(el){ el.style.borderLeft='none'; });
-  block.el.style.borderLeft='3px solid #4a9eff';
+  block.el.style.borderLeft = '3px solid #4a9eff';
   block.el.scrollIntoView({behavior:'smooth',block:'nearest'});
-  document.getElementById('voice-status').textContent='Membaca blok '+(idx+1)+' dari '+voiceState.blocks.length;
-  document.getElementById('voice-progress').textContent=block.title;
-
-  // Pecah teks jadi kalimat pendek agar tidak terpotong
-  var fullText = block.title+'. '+block.text;
+  document.getElementById('voice-status').textContent  = 'Membaca blok '+(idx+1)+' dari '+voiceState.blocks.length;
+  document.getElementById('voice-progress').textContent = block.title;
+  var fullText  = block.title+'. '+block.text;
   var sentences = fullText.match(/[^.!?,;]+[.!?,;]*/g)||[fullText];
-  var chunks=[], buf='';
+  var chunks=[],buf='';
   sentences.forEach(function(s){
-    if((buf+s).length>180){ if(buf) chunks.push(buf.trim()); buf=s; }
+    if ((buf+s).length>180){ if(buf) chunks.push(buf.trim()); buf=s; }
     else buf+=s;
   });
-  if(buf.trim()) chunks.push(buf.trim());
-
+  if (buf.trim()) chunks.push(buf.trim());
   var ci=0;
   function next(){
-    if(ci>=chunks.length){ voiceReadBlock(idx+1); return; }
-    if(!voiceState.speaking||voiceState.paused) return;
+    if (ci>=chunks.length){ voiceReadBlock(idx+1); return; }
+    if (!voiceState.speaking||voiceState.paused) return;
     var u=new SpeechSynthesisUtterance(chunks[ci]);
     var voice=getBestVoice();
-    if(voice){ u.voice=voice; u.lang=voice.lang; } else { u.lang='id-ID'; }
+    if (voice){ u.voice=voice; u.lang=voice.lang; } else { u.lang='id-ID'; }
     u.rate=0.92; u.pitch=1; u.volume=1;
-    u.onend=function(){ ci++; next(); };
-    u.onerror=function(e){ if(e.error!=='interrupted'){ ci++; next(); } };
+    u.onend  = function(){ ci++; next(); };
+    u.onerror= function(e){ if(e.error!=='interrupted'){ ci++; next(); } };
     window.speechSynthesis.speak(u);
   }
   next();
 }
 
-function voicePause(){
-  if(!window.speechSynthesis||!voiceState.speaking||voiceState.paused) return;
+function voicePause() {
+  if (!window.speechSynthesis||!voiceState.speaking||voiceState.paused) return;
   window.speechSynthesis.pause();
   voiceState.paused=true; voiceState.speaking=false;
   document.getElementById('btn-play').disabled=false;
-  document.getElementById('btn-play').textContent='▶ LANJUT';
+  document.getElementById('btn-play').textContent='&#9654; LANJUT';
   document.getElementById('btn-pause').disabled=true;
   document.getElementById('voice-status').textContent='Dijeda';
 }
 
-function voiceStop(){
-  if(window.speechSynthesis) window.speechSynthesis.cancel();
+function voiceStop() {
+  if (window.speechSynthesis) window.speechSynthesis.cancel();
   voiceState.speaking=false; voiceState.paused=false; voiceState.current=0;
   document.querySelectorAll('#ai-result-0 .ai-block').forEach(function(el){ el.style.borderLeft='none'; });
   var p=document.getElementById('btn-play'),pa=document.getElementById('btn-pause'),s=document.getElementById('btn-stop');
-  if(p){ p.disabled=false; p.textContent='▶ PLAY'; }
+  if(p){p.disabled=false;p.textContent='&#9654; PLAY';}
   if(pa) pa.disabled=true;
   if(s)  s.disabled=true;
   var vs=document.getElementById('voice-status'),vp=document.getElementById('voice-progress');
@@ -925,11 +908,11 @@ function voiceStop(){
   if(vp) vp.textContent='';
 }
 
-function voiceFinish(){
+function voiceFinish() {
   voiceState.speaking=false; voiceState.paused=false;
   document.querySelectorAll('#ai-result-0 .ai-block').forEach(function(el){ el.style.borderLeft='none'; });
   var p=document.getElementById('btn-play'),pa=document.getElementById('btn-pause'),s=document.getElementById('btn-stop');
-  if(p){ p.disabled=false; p.textContent='▶ PLAY'; }
+  if(p){p.disabled=false;p.textContent='&#9654; PLAY';}
   if(pa) pa.disabled=true;
   if(s)  s.disabled=true;
   var vs=document.getElementById('voice-status'),vp=document.getElementById('voice-progress');
@@ -938,15 +921,19 @@ function voiceFinish(){
 }
 
 // Preload voices
-if(window.speechSynthesis){
-  window.speechSynthesis.onvoiceschanged=function(){ window.speechSynthesis.getVoices(); }
+if (window.speechSynthesis) {
+  window.speechSynthesis.onvoiceschanged = function(){ window.speechSynthesis.getVoices(); };
+}
 
-// init
+// ========== INIT ==========
 window.onload = function() {
-  var k = ''; 
+  var k = '';
   try { k = localStorage.getItem('groq_key') || ''; } catch(e) {}
   if (!k) { try { k = sessionStorage.getItem('groq_key') || ''; } catch(e) {} }
-  if (k) { document.getElementById('api-key').value = k; document.getElementById('key-ok').style.display = 'inline'; }
+  if (k) {
+    document.getElementById('api-key').value = k;
+    document.getElementById('key-ok').style.display = 'inline';
+  }
 };
 </script>
 </body>
