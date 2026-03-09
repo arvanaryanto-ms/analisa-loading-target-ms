@@ -154,7 +154,7 @@ td{padding:9px 14px;white-space:nowrap;}
     <div class="section-head">
       <div class="section-title">UPLOAD DATA</div>
     </div>
-    <input type="file" id="fi-0" accept=".csv" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;" onchange="readCSV(this,'tab0')"/>
+    <input type="file" id="fi-0" accept=".csv" style="position:fixed;top:-9999px;left:-9999px;opacity:0;" onchange="readCSV(this,'tab0')"/>
     <div class="upload-zone" id="uz-0" ondragover="onDrag(event,'uz-0')" ondragleave="offDrag('uz-0')" ondrop="onDrop(event,'fi-0','uz-0','tab0')">
       <button class="btn-dl-template" onclick="event.stopPropagation();dlTemplate()">↓ DOWNLOAD TEMPLATE</button>
       <div class="upload-icon">📦</div>
