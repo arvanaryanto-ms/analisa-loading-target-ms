@@ -155,17 +155,16 @@ td{padding:9px 14px;white-space:nowrap;}
       <div class="section-title">UPLOAD DATA</div>
     </div>
     <div class="upload-zone" id="uz-0"
-         onclick="document.getElementById('fi-0').click()"
          ondragover="onDrag(event,'uz-0')"
          ondragleave="offDrag('uz-0')"
-         ondrop="onDrop(event,'fi-0','uz-0','tab0')">
+         ondrop="onDrop(event,'uz-0','tab0')">
       <button class="btn-dl-template" onclick="event.stopPropagation();dlTemplate()">&#8595; DOWNLOAD TEMPLATE</button>
-      <div class="upload-icon">&#128230;</div>
+      <div class="upload-icon">📦</div>
       <div class="upload-label" id="uz-0-title">Upload CSV &mdash; Analisis Waktu Loading vs Target</div>
       <div class="upload-hint" id="uz-0-sub">Drag &amp; drop atau klik &middot; Export dari Metabase &middot; Query: Analisis Waktu Loading vs Target per Jenis Kendaraan</div>
       <div class="err-msg hidden" id="uz-0-err"></div>
-      <input type="file" id="fi-0" accept=".csv" style="display:none" onchange="readCSV(this,'tab0')" onclick="this.value=null"/>
-      <button onclick="event.stopPropagation();document.getElementById('fi-0').click()" style="margin-top:12px;background:#1d4ed8;color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:11px;cursor:pointer;font-family:'IBM Plex Mono',monospace;letter-spacing:1px;">&#128194; PILIH FILE CSV</button>
+      <input type="file" id="fi-0" accept=".csv" style="display:none" onchange="readCSV(this,'tab0')"/>
+      <label for="fi-0" onclick="this.previousElementSibling.value=null" style="display:inline-block;margin-top:12px;background:#1d4ed8;color:#fff;border:none;border-radius:6px;padding:8px 20px;font-size:11px;cursor:pointer;font-family:'IBM Plex Mono',monospace;letter-spacing:1px;">📂 PILIH FILE CSV</label>
     </div>
 
     <!-- FILTER -->
@@ -217,9 +216,9 @@ td{padding:9px 14px;white-space:nowrap;}
         <div class="ai-loading hidden" id="ai-ld-0"><div class="spinner"></div>AI sedang menganalisa data...</div>
         <div id="ai-result-0"></div>
         <div class="voice-controls" id="voice-controls">
-          <button class="btn-voice btn-play" id="btn-play" onclick="voicePlay()">&#9654; PLAY</button>
-          <button class="btn-voice btn-pause" id="btn-pause" onclick="voicePause()" disabled>&#9646;&#9646; PAUSE</button>
-          <button class="btn-voice btn-stop" id="btn-stop" onclick="voiceStop()" disabled>&#9632; STOP</button>
+          <button class="btn-voice btn-play" id="btn-play" onclick="voicePlay()">▶ PLAY</button>
+          <button class="btn-voice btn-pause" id="btn-pause" onclick="voicePause()" disabled>⏸ PAUSE</button>
+          <button class="btn-voice btn-stop" id="btn-stop" onclick="voiceStop()" disabled>⏹ STOP</button>
           <span class="voice-status" id="voice-status">Siap membaca analisa</span>
           <span class="voice-progress" id="voice-progress"></span>
         </div>
@@ -283,7 +282,7 @@ function switchTab(idx) {
 function onDrag(e, id) { e.preventDefault(); document.getElementById(id).classList.add('drag'); }
 function offDrag(id)   { document.getElementById(id).classList.remove('drag'); }
 
-function onDrop(e, fid, uid, tab) {
+function onDrop(e, uid, tab) {
   e.preventDefault();
   offDrag(uid);
   var f = e.dataTransfer.files[0];
@@ -825,7 +824,7 @@ function voicePlay() {
     window.speechSynthesis.resume();
     voiceState.paused=false; voiceState.speaking=true;
     document.getElementById('btn-play').disabled=true;
-    document.getElementById('btn-play').textContent='&#9654; PLAY';
+    document.getElementById('btn-play').textContent='▶ PLAY';
     document.getElementById('btn-pause').disabled=false;
     document.getElementById('voice-status').textContent='Membaca...';
     return;
@@ -890,7 +889,7 @@ function voicePause() {
   window.speechSynthesis.pause();
   voiceState.paused=true; voiceState.speaking=false;
   document.getElementById('btn-play').disabled=false;
-  document.getElementById('btn-play').textContent='&#9654; LANJUT';
+  document.getElementById('btn-play').textContent='▶ LANJUT';
   document.getElementById('btn-pause').disabled=true;
   document.getElementById('voice-status').textContent='Dijeda';
 }
@@ -900,7 +899,7 @@ function voiceStop() {
   voiceState.speaking=false; voiceState.paused=false; voiceState.current=0;
   document.querySelectorAll('#ai-result-0 .ai-block').forEach(function(el){ el.style.borderLeft='none'; });
   var p=document.getElementById('btn-play'),pa=document.getElementById('btn-pause'),s=document.getElementById('btn-stop');
-  if(p){p.disabled=false;p.textContent='&#9654; PLAY';}
+  if(p){p.disabled=false;p.textContent='▶ PLAY';}
   if(pa) pa.disabled=true;
   if(s)  s.disabled=true;
   var vs=document.getElementById('voice-status'),vp=document.getElementById('voice-progress');
@@ -912,7 +911,7 @@ function voiceFinish() {
   voiceState.speaking=false; voiceState.paused=false;
   document.querySelectorAll('#ai-result-0 .ai-block').forEach(function(el){ el.style.borderLeft='none'; });
   var p=document.getElementById('btn-play'),pa=document.getElementById('btn-pause'),s=document.getElementById('btn-stop');
-  if(p){p.disabled=false;p.textContent='&#9654; PLAY';}
+  if(p){p.disabled=false;p.textContent='▶ PLAY';}
   if(pa) pa.disabled=true;
   if(s)  s.disabled=true;
   var vs=document.getElementById('voice-status'),vp=document.getElementById('voice-progress');
